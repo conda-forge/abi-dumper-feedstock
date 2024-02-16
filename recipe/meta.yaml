@@ -1,13 +1,19 @@
 {% set name = "abi-dumper" %}
-{% set version = "1.2" %}
+{% set version = "1.3dev0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/lvc/abi-dumper/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 8a9858c91b4e9222c89b676d59422053ad560fa005a39443053568049bd4d27e
+  # url: https://github.com/lvc/abi-dumper/archive/refs/tags/{{ version }}.tar.gz
+  # sha256: 8a9858c91b4e9222c89b676d59422053ad560fa005a39443053568049bd4d27e
+  # Since GCC11, the ELF5 format is used. abi-dumper 1.2 does not support
+  # ELF5. The main branch of abi-dumper does have a patch to support ELF5, but
+  # there is no tagged release.
+  # https://github.com/lvc/abi-dumper/issues/33
+  # https://github.com/lvc/abi-dumper/issues/34
+  url: https://github.com/lvc/abi-dumper/archive/16bb467cd7d343dd3a16782b151b56cf15509594.tar.gz
 
 build:
   number: 0
