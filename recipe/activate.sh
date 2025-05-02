@@ -1,4 +1,6 @@
-ABI_DUMPER_FLAGS="-g -Og -fno-eliminate-unused-debug-types"
+#! /bin/bash
+
+export ABI_DUMPER_FLAGS="-g -Og -fno-eliminate-unused-debug-types"
 
 export CFLAGS="$(echo "$CFLAGS" | sed -E 's/(^|[ ,])-O[0-9]+([ ,]|$)/ /g') ${ABI_DUMPER_FLAGS}"
 export CPPFLAGS="$(echo "$CPPFLAGS" | sed -E 's/(^|[ ,])-O[0-9]+([ ,]|$)/ /g') ${ABI_DUMPER_FLAGS}"

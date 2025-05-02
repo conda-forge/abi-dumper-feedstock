@@ -12,6 +12,10 @@ source:
 build:
   number: 1
   skip: true  # [not linux]
+  script:
+    - sed -i "s|#!/usr/bin/perl|#!$PREFIX/bin/perl|" abi-dumper.pl
+    - make install prefix=$PREFIX
+    - mv activate.sh $PREFIX/bin/abi-dumper-set-flags.sh
 
 requirements:
   build:
