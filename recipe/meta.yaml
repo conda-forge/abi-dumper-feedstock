@@ -10,11 +10,12 @@ source:
   sha256: aa7a52bf913ab1a64743551d64575f921df3faa4a592a0f6614e047bc228708a
 
 build:
-  number: 0
+  number: 1
   skip: true  # [not linux]
   script:
     - sed -i "s|#!/usr/bin/perl|#!$PREFIX/bin/perl|" abi-dumper.pl
     - make install prefix=$PREFIX
+    - mv $RECIPE_DIR/activate.sh $PREFIX/bin/abi-dumper-set-flags.sh
 
 requirements:
   build:
